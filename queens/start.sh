@@ -27,11 +27,11 @@ service nova-novncproxy start
 
 echo "--- start neutron"
 service neutron-server start
-service neutron-linuxbridge start
-service neutron-dhcp-agent-start
+#service neutron-linuxbridge start
+#service neutron-dhcp-agent-start
 service neutron-metadata-agent start
 
-echo "--- start cinder"
 
+echo "-- startup finished"
 
 while true; do sleep 10; done;

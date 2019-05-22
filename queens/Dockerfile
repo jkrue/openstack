@@ -83,7 +83,8 @@ RUN initialize/initialize.sh
 
 COPY start.sh /start.sh
 
-CMD ['/start.sh']
+CMD ["/bin/bash","/start.sh"]
+
 
 
 
