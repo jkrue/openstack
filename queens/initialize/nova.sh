@@ -13,9 +13,9 @@ openstack role add --project service --user nova admin
 openstack service create --name nova --description "OpenStack Compute" compute
 
 # Create the nova endpoints
-openstack endpoint create --region RegionOne compute public http://controller:8774/v2.1
-openstack endpoint create --region RegionOne compute internal http://controller:8774/v2.1
-openstack endpoint create --region RegionOne compute admin http://controller:8774/v2.1
+openstack endpoint create --region RegionOne compute public http://localhost:8774/v2.1
+openstack endpoint create --region RegionOne compute internal http://localhost:8774/v2.1
+openstack endpoint create --region RegionOne compute admin http://localhost:8774/v2.1
 
 # Create the nova placement user and  add the admin role
 openstack user create --domain default --password "123" placement
@@ -25,9 +25,9 @@ openstack role add --project service --user placement admin
 openstack service create --name placement --description "Placement API" placement
 
 # Create the nova placement endpoint
-openstack endpoint create --region RegionOne placement public http://controller:8778
-openstack endpoint create --region RegionOne placement internal http://controller:8778
-openstack endpoint create --region RegionOne placement admin http://controller:8778
+openstack endpoint create --region RegionOne placement public http://localhost:8778
+openstack endpoint create --region RegionOne placement internal http://localhost:8778
+openstack endpoint create --region RegionOne placement admin http://localhost:8778
 
 # populate the api database
 su -s /bin/sh -c "nova-manage api_db sync" nova

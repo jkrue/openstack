@@ -12,9 +12,9 @@ openstack role add --project service --user neutron admin
 openstack service create --name neutron --description "OpenStack Networking" network
 
 # Create neutron endpoints
-openstack endpoint create --region RegionOne network public http://controller:9696
-openstack endpoint create --region RegionOne network internal http://controller:9696
-openstack endpoint create --region RegionOne network admin http://controller:9696
+openstack endpoint create --region RegionOne network public http://localhost:9696
+openstack endpoint create --region RegionOne network internal http://localhost:9696
+openstack endpoint create --region RegionOne network admin http://localhost:9696
 
 # the following does not work in a container
 # sysctl net.bridge.bridge-nf-call-iptables 1
@@ -25,6 +25,6 @@ su -s /bin/sh -c "neutron-db-manage --config-file /etc/neutron/neutron.conf --co
 
 #start neutron service
 service neutron-server start
-service neutron-linuxbridge start
-service neutron-dhcp-agent-start
-service neutron-metadata-agent start
+#service neutron-linuxbridge start
+#service neutron-dhcp-agent-start
+#service neutron-metadata-agent start

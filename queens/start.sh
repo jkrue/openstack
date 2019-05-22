@@ -29,7 +29,7 @@ echo "--- start neutron"
 service neutron-server start
 #service neutron-linuxbridge start
 #service neutron-dhcp-agent-start
-service neutron-metadata-agent start
+#service neutron-metadata-agent start
 
 
 echo "-- startup finished"

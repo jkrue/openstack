@@ -13,9 +13,9 @@ openstack role add --project service --user glance admin
 openstack service create --name glance --description "OpenStack Image" image
 
 # Create the Image service API endpoints
-openstack endpoint create --region RegionOne image public http://controller:9292
-openstack endpoint create --region RegionOne image internal http://controller:9292
-openstack endpoint create --region RegionOne image admin http://controller:9292
+openstack endpoint create --region RegionOne image public http://localhost:9292
+openstack endpoint create --region RegionOne image internal http://localhost:9292
+openstack endpoint create --region RegionOne image admin http://localhost:9292
 
 # populate database
 su -s /bin/sh -c "glance-manage db_sync" glance

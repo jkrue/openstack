@@ -12,9 +12,9 @@ openstack role add --project service --user cinder admin
 openstack service create --name cinderv3 --description "OpenStack Block Storage" volumev3
 
 # Create cinder endpoints
-openstack endpoint create --region RegionOne volumev3 public http://controller:8776/v3/%\(project_id\)s
-openstack endpoint create --region RegionOne volumev3 internal http://controller:8776/v3/%\(project_id\)s
-openstack endpoint create --region RegionOne volumev3 admin http://controller:8776/v3/%\(project_id\)s
+openstack endpoint create --region RegionOne volumev3 public http://localhost:8776/v3/%\(project_id\)s
+openstack endpoint create --region RegionOne volumev3 internal http://localhost:8776/v3/%\(project_id\)s
+openstack endpoint create --region RegionOne volumev3 admin http://localhost:8776/v3/%\(project_id\)s
 
 #populate database
 su -s /bin/sh -c "cinder-manage db sync" cinder

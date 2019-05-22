@@ -11,15 +11,15 @@ keystone-manage credential_setup --keystone-user keystone --keystone-group keyst
 
 # Bootstrap the identity servive
 keystone-manage bootstrap --bootstrap-password 123 \
- --bootstrap-admin-url http://controller:5000/v3/ \
- --bootstrap-internal-url http://controller:5000/v3/ \
- --bootstrap-public-url http://controller:5000/v3/ \
+ --bootstrap-admin-url http://localhost:5000/v3/ \
+ --bootstrap-internal-url http://localhost:5000/v3/ \
+ --bootstrap-public-url http://localhost:5000/v3/ \
  --bootstrap-region-id RegionOne
 
 # Configure apache
 
 cp /etc/apache2/apache2.conf /etc/apache2/apache2.conf.orig
-echo "ServerName controller" > /etc/apache2/apache2.conf
+echo "ServerName localhost" > /etc/apache2/apache2.conf
 cat /etc/apache2/apache2.conf.orig >> /etc/apache2/apache2.conf
 
 # Start apache2
