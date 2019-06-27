@@ -3,14 +3,15 @@ This repositories offer a full Openstack API (KeyStone,Nova, Neutron, Glance and
 
 
 # Build
-Depending of the version you want to build change into a directory and call e.g. for queens:
+Building the container is straightforward :
 
 ``` 
-cd queens
-docker build -t openstack:queens .
+docker build -t openstack:<version> -f Dockerfile.<version> .
 ```
 
+where version is a supported Openstack version (queens or rocky).
 Depending on your network bandwidth and your compute power  building the container takes a while.
+
 # Usage
 Once build, the container can be started  :
 
@@ -18,7 +19,7 @@ Once build, the container can be started  :
 docker run -p 5000:5000 -p 9292:9292 \
            -p 8774:8774 -p 8776:8776 \
            -p 8778:8778 -p 9696:9696 \
-           -d openstack:queens
+           -d openstack:<version>
 ```
 
 On the host  you can access the API  using  Openstack cmdline tools. 
